@@ -10,13 +10,18 @@ router.get("/", programmes.findAll);
 
 router.get("/filiere/:filiere_id", programmes.findByFiliere);
 
-router.get("/:id", programmes.findOne);
+router.get("/:programme_id", programmes.findOne);
 
 router.post("/", authMiddleware, programmes.create);
 
-router.put("/:id", authMiddleware, programmes.update);
+router.put("/:programme_id", authMiddleware, programmes.update);
 
-router.delete("/:id", authMiddleware, adminMiddleware, programmes.delete);
+router.delete(
+  "/:programme_id",
+  authMiddleware,
+  adminMiddleware,
+  programmes.delete
+);
 
 router.delete("/", authMiddleware, adminMiddleware, programmes.deleteAll);
 
