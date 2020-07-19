@@ -3,14 +3,48 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "npm run build && cross-env NODE_ENV=development nodemon server/bin/www --watch server/*",
+    "start-server": "node ./bin/www",
+    "build": "react-scripts build",
+    "eject": "react-scripts eject",
+    "test": "react-scripts test"
   },
   "dependencies": {
+    "axios": "^0.19.2",
+    "bootstrap": "^4.5.0",
     "cookie-parser": "~1.4.4",
+    "cross-env": "^7.0.2",
     "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
-    "jade": "~1.11.0",
-    "morgan": "~1.9.1"
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "~1.9.1",
+    "mysql": "^2.18.1",
+    "nodemon": "2.0.4",
+    "react": "16.13.1",
+    "react-bootstrap": "^1.2.2",
+    "react-dom": "16.13.1",
+    "react-helmet": "6.1.0",
+    "react-inline-editing": "^1.0.10",
+    "react-redux": "7.2.0",
+    "react-router-dom": "5.2.0",
+    "react-scripts": "^3.4.1",
+    "react-spinners": "^0.9.0",
+    "redux": "4.0.5",
+    "redux-thunk": "2.3.0",
+    "universal-cookie": "^4.0.3"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
