@@ -1,0 +1,29 @@
+export const userActions = {
+  REQUEST: "REQUEST_USER",
+  SUCCESS: "SUCCESS_USER",
+  FAILURE: "FAILURE_USER",
+  LOGOUT: "LOGOUT_USER",
+};
+export const filiereActions = {
+  REQUEST: "REQUEST_FILIERE",
+  SUCCESS: "SUCCESS_FILIERE",
+  FAILURE: "FAILURE_FILIERE",
+};
+
+export const moduleActions = {
+  REQUEST: "REQUEST_MODULE",
+  SUCCESS: "SUCCESS_MODULE",
+  FAILURE: "FAILURE_MODULE",
+};
+
+export const programmeActions = {
+  REQUEST: "REQUEST_PROGRAMME",
+  SUCCESS: "SUCCESS_PROGRAMME",
+  FAILURE: "FAILURE_PROGRAMME",
+};
+
+export const supportActions = {
+  REQUEST: "REQUEST_SUPPORT",
+  SUCCESS: "SUCCESS_SUPPORT",
+  FAILURE: "FAILURE_SUPPORT",
+};
