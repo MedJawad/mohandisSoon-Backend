@@ -16,9 +16,6 @@ const Header = () => {
         <Link style={headerLinkStyle} to="/filieres">
           Filieres
         </Link>
-        <Link style={headerLinkStyle} to="/programmes">
-          Programmes{" "}
-        </Link>
         <Link style={headerLinkStyle} to="/modules">
           Modules{" "}
         </Link>
