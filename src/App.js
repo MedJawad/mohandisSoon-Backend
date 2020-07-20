@@ -3,7 +3,6 @@ import logo from "./logo.svg";
 import "./App.css";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import Filiere from "./pages/Filiere";
-import Programme from "./pages/Programme";
 import Module from "./pages/Module";
 import Support from "./pages/Support";
 import Login from "./pages/Login";
@@ -32,7 +31,6 @@ function App() {
             <React.Fragment>
               <Header />
               <Route exact path="/filieres" component={Filiere} />
-              <Route exact path="/programmes" component={Programme} />
               <Route exact path="/modules" component={Module} />
               <Route exact path="/supports" component={Support} />
               {/* <Redirect exact from="/" to="/filieres" component={Filiere} /> */}
