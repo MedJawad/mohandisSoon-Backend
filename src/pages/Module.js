@@ -3,19 +3,19 @@ import { useDispatch, useSelector } from "react-redux";
 import { Table, Button } from "react-bootstrap";
 
 import { fetchAll, updateItem, saveItem } from "../actions/modules";
-import { fetchAll as fetchProgrammes } from "../actions/programmes";
+import { fetchAll as fetchFilieres } from "../actions/filieres";
 import Editable from "../components/Editable";
 
 const Module = () => {
   const dispatch = useDispatch();
-  const programmes = useSelector((state) => state.programmes.items);
+  const filieres = useSelector((state) => state.filieres.items);
   const storeItems = useSelector((state) => state.modules.items);
   const [items, setitems] = useState([]);
   const [isEdited, setisEdited] = useState(false);
   const [isCreating, setisCreating] = useState(false);
 
   useEffect(() => {
-    dispatch(fetchProgrammes());
+    dispatch(fetchFilieres());
     dispatch(fetchAll());
   }, []);
   useEffect(() => {
@@ -49,7 +49,7 @@ const Module = () => {
   const newItem = () => {
     setisCreating(true);
     //Here we'll show the line of a new item
-    const newItems = items.concat([{ id: "NEW", programme_id: 1 }]);
+    const newItems = items.concat([{ id: "NEW", filiere_id: 1 }]);
     setitems(newItems);
   };
   const renderItems = () => {
@@ -97,15 +97,15 @@ const Module = () => {
             onChange={(e) =>
               handleTextEdited(item.id, {
                 ...item,
-                programme_id: e.target.value,
+                filiere_id: e.target.value,
               })
             }
-            value={item.programme_id}
+            value={item.filiere_id}
           >
             {" "}
-            {programmes.map((p, idx) => (
-              <option key={idx} value={p.id}>
-                {p.name}
+            {filieres.map((f, idx) => (
+              <option key={idx} value={f.id}>
+                {f.name}
               </option>
             ))}{" "}
           </select>
@@ -124,7 +124,7 @@ const Module = () => {
             <th>Description</th>
             <th>Charge Horaire</th>
             <th>Active</th>
-            <th>Programme Id</th>
+            <th>Filiere Id</th>
           </tr>
         </thead>
         <tbody>{renderItems()}</tbody>

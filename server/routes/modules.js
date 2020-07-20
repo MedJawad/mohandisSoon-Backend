@@ -8,7 +8,7 @@ const {
 
 router.get("/", modules.findAll);
 
-router.get("/programme/:programme_id", modules.findByProgramme);
+router.get("/filiere/:filiere_id", modules.findByFiliere);
 
 router.get("/:moduleId", modules.findOne);
 

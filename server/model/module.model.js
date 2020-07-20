@@ -6,7 +6,7 @@ const Module = function (module) {
   this.description = module.description;
   this.charge_horaire = module.charge_horaire;
   this.active = module.active;
-  this.programme_id = module.programme_id;
+  this.filiere_id = module.filiere_id;
 };
 
 Module.create = (newModule, result) => {
@@ -37,9 +37,9 @@ Module.findById = (moduleId, result) => {
   });
 };
 
-Module.findByProgramme = (programmeId, result) => {
+Module.findByFiliere = (filiereId, result) => {
   sql.query(
-    `SELECT * FROM modules WHERE programme_id = ${programmeId}`,
+    `SELECT * FROM modules WHERE filiere_id = ${filiereId}`,
     (err, res) => {
       if (err) {
         result(err, null);
@@ -69,13 +69,13 @@ Module.getAll = (result) => {
 
 Module.updateById = (id, module, result) => {
   sql.query(
-    "UPDATE modules SET description = ?, name = ?, charge_horaire = ?, active = ?, programme_id = ? WHERE id = ?",
+    "UPDATE modules SET description = ?, name = ?, charge_horaire = ?, active = ?, filiere_id = ? WHERE id = ?",
     [
       module.description,
       module.name,
       module.charge_horaire,
       module.active,
-      module.programme_id,
+      module.filiere_id,
       id,
     ],
     (err, res) => {

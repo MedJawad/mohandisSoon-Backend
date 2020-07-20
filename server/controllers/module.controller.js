@@ -15,7 +15,7 @@ exports.create = (req, res) => {
     name: req.body.name,
     charge_horaire: req.body.charge_horaire,
     active: req.body.active || true,
-    programme_id: req.body.programme_id,
+    filiere_id: req.body.filiere_id,
   });
 
   // Save Module in the database
@@ -57,24 +57,41 @@ exports.findOne = (req, res) => {
   });
 };
 
-//Find Module by ProgrammeID
-exports.findByProgramme = (req, res) => {
-  Module.findByProgramme(req.params.programme_id, (err, data) => {
+//Find Module by filiereID
+exports.findByFiliere = (req, res) => {
+  Module.findByFiliere(req.params.filiere_id, (err, data) => {
     if (err) {
       if (err.kind === "not_found") {
         res.status(404).send({
-          message: `Not found Module with programme_id ${req.params.programme_id}.`,
+          message: `Not found Module with filiere_id ${req.params.filiere_id}.`,
         });
       } else {
         res.status(500).send({
           message:
-            "Error retrieving Module with programme_id " +
-            req.params.programme_id,
+            "Error retrieving Module with filiere_id " + req.params.filiere_id,
         });
       }
     } else res.send(data);
   });
 };
+
+// //Find Module by filiereID
+// exports.findByAnnee = (req, res) => {
+//   Module.findByAnnee(req.params.semestre, (err, data) => {
+//     if (err) {
+//       if (err.kind === "not_found") {
+//         res.status(404).send({
+//           message: `Not found Module with filiere_id ${req.params.filiere_id}.`,
+//         });
+//       } else {
+//         res.status(500).send({
+//           message:
+//             "Error retrieving Module with filiere_id " + req.params.filiere_id,
+//         });
+//       }
+//     } else res.send(data);
+//   });
+// };
 
 // Update a Module identified by the id in the request
 exports.update = (req, res) => {

@@ -52,7 +52,7 @@ DROP TABLE IF EXISTS `filieres`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `filieres` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) UNIQUE NOT NULL,
+  `name` varchar(255) NOT NULL,
   `description` text,
   `pictureUrl` varchar(255) DEFAULT NULL,
   `active` tinyint(1) DEFAULT '1',
@@ -66,7 +66,7 @@ CREATE TABLE `filieres` (
 
 LOCK TABLES `filieres` WRITE;
 /*!40000 ALTER TABLE `filieres` DISABLE KEYS */;
-INSERT INTO `filieres` VALUES (1,'Génie Informatique','Une Genie qui necessite un aspect logique et une capabilité de résoudre les problemes','https://piusad.com/php_assets/uploads/2020/02/computer-science.jpeg',1),(2,'Génie Industrielle','Une Genie qui necessite un aspect autonome et communicatif','https://s27389.pcdn.co/wp-content/uploads/2018/01/AdobeStock_135408512-1024x619.jpeg',1);
+INSERT INTO `filieres` VALUES (1,'Génie Informatique','Une Genie qui necessite un aspect logique et une capabilité de résoudre les problemes','https://piusad.com/php_assets/uploads/2020/02/computer-science.jpeg',1),(2,'Génie Industrielle','Une Genie qui necessite un aspect d\'autonomie et de communication','https://s27389.pcdn.co/wp-content/uploads/2018/01/AdobeStock_135408512-1024x619.jpeg',1);
 /*!40000 ALTER TABLE `filieres` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -79,15 +79,14 @@ DROP TABLE IF EXISTS `modules`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `modules` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) UNIQUE NOT NULL,
+  `name` varchar(255) NOT NULL,
   `description` text,
   `charge_horaire` varchar(255) DEFAULT NULL,
-  `annee` enum('1','2','3','4','5') DEFAULT '4' NOT NULL,
   `active` tinyint(1) DEFAULT '1',
-  `filiere_id` int(11) DEFAULT NULL,
+  `programme_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `filiere_id` (`filiere_id`),
-  CONSTRAINT `modules_ibfk_1` FOREIGN KEY (`filiere_id`) REFERENCES `filieres` (`id`)
+  KEY `programme_id` (`programme_id`),
+  CONSTRAINT `modules_ibfk_1` FOREIGN KEY (`programme_id`) REFERENCES `programmes` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -97,8 +96,37 @@ CREATE TABLE `modules` (
 
 LOCK TABLES `modules` WRITE;
 /*!40000 ALTER TABLE `modules` DISABLE KEYS */;
-INSERT INTO `modules` (`id`,`name`,`description`,`charge_horaire`,`active`,`filiere_id`) VALUES (1,'Genie Logiciel','Contient des outils pour amelioration du niveau de logiciel, en utilisant le framework Spring.','24H',1,1),(2,'Theorie de language','Un module qui demontre comment les  languages de programmations sont écrits','30H',1,1),(3,'Theorie de Compilation','Un module qui demontre comment les compilateurs interpretent les languages de programmations','30H',1,1),(4,'UML 2','Sert à ameliorer l\'esprit de modélisation et conceptions chez l\'élève ingenieur','24H',1,1),(5,'Administration Système et Réseaux','Apprends les concepts de bases des réseaux ( DNS, IPTABLES, ...)','60H',1,1),(6,'Projet de Fin d\'année','Un projet qui doit être réalisé et soutenu devant un jury à l\'école','80H',1,1),(7,'XML','Apprendre l\'utilisation du language XML','48H',1,1),(8,'Developpement Mobile','Apprendre le developpement mobile','22H',1,1),(9,'Techniques de Communication','Apprendre des techniques de communication','30H',1,1),(10,'Economie et gestion d\'entreprise','Apprendre les outils de gestion d\'entreprise','26H',1,1),(11,'Reseaux informatiques','Apprendre les bases des réseaux informatiques','23H',1,1),(12,'Télecoms','Apprendre les bases des réseaux télécoms et comment ca fonctionne','23H',1,1),(13,'Administration des base de données Oracle','Apprendre les bases d\'administration des base de données, en utilisant Oracle comme exemple','32H',1,1),(14,'Language PL/SQL','Apprendre le language PL/SQL d\'oracle','28H',1,1),(15,'Anglais Professionnel','Apprendre les notions de communication professionnelle en anglais','26H',1,1),(16,'Communication Professionnelle','Apprendre des notions de communication professionnelle en francais','26H',1,1),(17,'JEE','Apprendre JavaEE pour la création des applications web','42H',1,1),(18,'.NET','Apprendre le framework .NET de C# ','34H',1,1),(19,'Theorie des graphes','Apprendre la théorie des graphes','30H',1,1),(20,'Optimisation','Apprendre les techniques d\'optimisation ','30H',1,1),(21,'Analyse Financière','Apprendre l\'analyse financière','38H',1,1),(22,'Gestion de projet','Apprendre les techniques de gestion des projets','37H',1,1),(23,'Analyse des données','Apprendre les outils et techniques utilisées pour l\'analyse des données','33H',1,1),(24,'Processus Stochastiques','Apprendres les notions de bases du processus stochastique','33H',1,1);
+INSERT INTO `modules` VALUES (1,'Genie Logiciel','Contient des outils pour amelioration du niveau de logiciel, en utilisant le framework Spring.','24H',1,1),(2,'Theorie de language','Un module qui demontre comment les  languages de programmations sont écrits','30H',1,1),(3,'Theorie de Compilation','Un module qui demontre comment les compilateurs interpretent les languages de programmations','30H',1,1),(4,'UML 2','Sert à ameliorer l\'esprit de modélisation et conceptions chez l\'élève ingenieur','24H',1,1),(5,'Administration Système et Réseaux','Apprends les concepts de bases des réseaux ( DNS, IPTABLES, ...)','60H',1,1),(6,'Projet de Fin d\'année','Un projet qui doit être réalisé et soutenu devant un jury à l\'école','80H',1,1),(7,'XML','Apprendre l\'utilisation du language XML','48H',1,1),(8,'Developpement Mobile','Apprendre le developpement mobile','22H',1,1),(9,'Techniques de Communication','Apprendre des techniques de communication','30H',1,1),(10,'Economie et gestion d\'entreprise','Apprendre les outils de gestion d\'entreprise','26H',1,1),(11,'Reseaux informatiques','Apprendre les bases des réseaux informatiques','23H',1,1),(12,'Télecoms','Apprendre les bases des réseaux télécoms et comment ca fonctionne','23H',1,1),(13,'Administration des base de données Oracle','Apprendre les bases d\'administration des base de données, en utilisant Oracle comme exemple','32H',1,1),(14,'Language PL/SQL','Apprendre le language PL/SQL d\'oracle','28H',1,1),(15,'Anglais Professionnel','Apprendre les notions de communication professionnelle en anglais','26H',1,1),(16,'Communication Professionnelle','Apprendre des notions de communication professionnelle en francais','26H',1,1),(17,'JEE','Apprendre JavaEE pour la création des applications web','42H',1,1),(18,'.NET','Apprendre le framework .NET de C# ','34H',1,1),(19,'Theorie des graphes','Apprendre la théorie des graphes','30H',1,1),(20,'Optimisation','Apprendre les techniques d\'optimisation ','30H',1,1),(21,'Analyse Financière','Apprendre l\'analyse financière','38H',1,1),(22,'Gestion de projet','Apprendre les techniques de gestion des projets','37H',1,1),(23,'Analyse des données','Apprendre les outils et techniques utilisées pour l\'analyse des données','33H',1,1),(24,'Processus Stochastiques','Apprendres les notions de bases du processus stochastique','33H',1,1);
 /*!40000 ALTER TABLE `modules` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `programmes`
+--
+
+DROP TABLE IF EXISTS `programmes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `programmes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `description` text,
+  `active` tinyint(1) DEFAULT '1',
+  `filiere_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `filiere_id` (`filiere_id`),
+  CONSTRAINT `programmes_ibfk_1` FOREIGN KEY (`filiere_id`) REFERENCES `filieres` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `programmes`
+--
+
+LOCK TABLES `programmes` WRITE;
+/*!40000 ALTER TABLE `programmes` DISABLE KEYS */;
+INSERT INTO `programmes` VALUES (1,'4eme annee','Le programme de la 4eme annee genie informatique apprend à l\'èleve les outils nécessaires pour pouvoir bien integrer une entreprise ',1,1),(2,'3eme annee','Le programme de la 3eme annee genie informatique comprend les notions de bases de l\'informatique',1,1);
+/*!40000 ALTER TABLE `programmes` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
