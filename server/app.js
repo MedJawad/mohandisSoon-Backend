@@ -7,7 +7,6 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 
 var filieresRouter = require("./routes/filieres");
-var programmesRouter = require("./routes/programmes");
 var modulesRouter = require("./routes/modules");
 var supportsRouter = require("./routes/supports");
 var authRouter = require("./routes/auth");
@@ -20,7 +19,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "../build")));
 
 app.use("/api/filieres", filieresRouter);
-app.use("/api/programmes", programmesRouter);
 app.use("/api/modules", modulesRouter);
 app.use("/api/supports", supportsRouter);
 app.use("/api/auth", authRouter);

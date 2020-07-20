@@ -49,7 +49,7 @@ const Module = () => {
   const newItem = () => {
     setisCreating(true);
     //Here we'll show the line of a new item
-    const newItems = items.concat([{ id: "NEW", filiere_id: 1 }]);
+    const newItems = items.concat([{ id: "NEW", annee: 1, filiere_id: 1 }]);
     setitems(newItems);
   };
   const renderItems = () => {
@@ -79,6 +79,23 @@ const Module = () => {
               handleTextEdited(item.id, { ...item, charge_horaire: text })
             }
           />
+        </td>
+        <td>
+          <select
+            onChange={(e) =>
+              handleTextEdited(item.id, {
+                ...item,
+                annee: e.target.value,
+              })
+            }
+            value={item.annee}
+          >
+            <option value={1}>1ere annee</option>
+            <option value={2}>2ere annee</option>
+            <option value={3}>3eme annee</option>
+            <option value={4}>4eme annee</option>
+            <option value={5}>5eme annee</option>
+          </select>
         </td>
         <td>
           <input
@@ -123,6 +140,7 @@ const Module = () => {
             <th>Name</th>
             <th>Description</th>
             <th>Charge Horaire</th>
+            <th>Annee</th>
             <th>Active</th>
             <th>Filiere Id</th>
           </tr>

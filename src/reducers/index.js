@@ -9,7 +9,6 @@ import { userActions } from "../actions/actionTypes";
 const appReducer = combineReducers({
   auth,
   filieres,
-  programmes,
   modules,
   supports,
 });
