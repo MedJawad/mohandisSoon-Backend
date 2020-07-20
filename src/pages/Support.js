@@ -23,7 +23,7 @@ const Support = () => {
     setitems(storeItems);
   }, [storeItems]);
 
-  console.log(items);
+  // console.log(items);
   const handleTextEdited = (id, newItem) => {
     setisEdited(true);
     const newItems = items.map((item) => {
@@ -44,13 +44,13 @@ const Support = () => {
       setisEdited(false);
       setisCreating(false);
 
-      alert("UPDATED SUCCESSFULLY");
+      // alert("UPDATED SUCCESSFULLY");
     });
   };
   const newItem = () => {
     setisCreating(true);
     //Here we'll show the line of a new item
-    const newItems = items.concat([{ id: "NEW" }]);
+    const newItems = items.concat([{ id: "NEW", module_id: 1 }]);
     setitems(newItems);
   };
   const renderItems = () => {

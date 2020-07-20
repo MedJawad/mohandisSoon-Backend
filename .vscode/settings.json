@@ -12,6 +12,19 @@
             "server": "localhost",
             "username": "root",
             "password": ""
+        },
+        {
+            "database": "mohandissoon",
+            "driver": "MySQL",
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "name": "production",
+            "password": "mohandiss",
+            "port": 3306,
+            "previewLimit": 50,
+            "server": "mohandissoon.cs6lhlpmefot.us-east-1.rds.amazonaws.com",
+            "username": "mohandiss"
         }
     ]
 }

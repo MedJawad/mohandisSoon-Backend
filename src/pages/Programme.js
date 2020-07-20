@@ -24,7 +24,7 @@ const Programme = () => {
     setitems(storeItems);
   }, [storeItems]);
 
-  console.log(items);
+  // console.log(items);
   const handleTextEdited = (id, newItem) => {
     setisEdited(true);
     const newItems = items.map((item) => {
@@ -45,13 +45,13 @@ const Programme = () => {
       setisEdited(false);
       setisCreating(false);
 
-      alert("UPDATED SUCCESSFULLY");
+      // alert("UPDATED SUCCESSFULLY");
     });
   };
   const newItem = () => {
     setisCreating(true);
     //Here we'll show the line of a new item
-    const newItems = items.concat([{ id: "NEW" }]);
+    const newItems = items.concat([{ id: "NEW", filiere_id: 1 }]);
     setitems(newItems);
   };
   const renderItems = () => {
@@ -91,7 +91,7 @@ const Programme = () => {
             onChange={(e) =>
               handleTextEdited(item.id, {
                 ...item,
-                filiere_id: e.target.value,
+                filiere_id: Number(e.target.value),
               })
             }
             value={item.filiere_id}

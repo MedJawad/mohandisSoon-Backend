@@ -21,7 +21,7 @@ const Filiere = () => {
     setitems(storeItems);
   }, [storeItems]);
 
-  console.log(items);
+  // console.log(items);
   const handleTextEdited = (id, newItem) => {
     setisEdited(true);
     const newItems = items.map((item) => {
@@ -42,7 +42,7 @@ const Filiere = () => {
       setisEdited(false);
       setisCreating(false);
 
-      alert("UPDATED SUCCESSFULLY");
+      // alert("UPDATED SUCCESSFULLY");
     });
   };
   const newItem = () => {
