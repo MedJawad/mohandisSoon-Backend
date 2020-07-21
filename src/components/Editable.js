@@ -3,12 +3,12 @@ import EditableLabel from "react-inline-editing";
 
 const Editable = ({ text, handleTextEdited }) => {
   const handleFocus = (text) => {
-    console.log("Focused with text: " + text);
+    // console.log("Focused with text: " + text);
   };
 
   const handleFocusOut = (text) => {
     handleTextEdited(text);
-    console.log("Left editor with text: " + text);
+    // console.log("Left editor with text: " + text);
   };
   return (
     <EditableLabel

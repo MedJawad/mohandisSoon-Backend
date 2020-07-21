@@ -6,7 +6,7 @@ import { fetchAll, updateItem, saveItem } from "../actions/supports";
 import { fetchAll as fetchModules } from "../actions/modules";
 import Editable from "../components/Editable";
 
-const Support = () => {
+const Support = ({ match }) => {
   const dispatch = useDispatch();
   // const isLoading = useSelector((state) => state.filieres.isLoading);
   const modules = useSelector((state) => state.modules.items);
@@ -20,8 +20,15 @@ const Support = () => {
     dispatch(fetchAll());
   }, []);
   useEffect(() => {
-    setitems(storeItems);
-  }, [storeItems]);
+    console.log(match.params.module_id, storeItems);
+    let relatedItems = [...storeItems];
+    if (match.params.module_id) {
+      relatedItems = relatedItems.filter(
+        (s) => s.module_id == match.params.module_id
+      );
+    }
+    setitems(relatedItems);
+  }, [storeItems, match.params.module_id]);
 
   // console.log(items);
   const handleTextEdited = (id, newItem) => {

@@ -6,7 +6,7 @@ import { fetchAll, updateItem, saveItem } from "../actions/modules";
 import { fetchAll as fetchFilieres } from "../actions/filieres";
 import Editable from "../components/Editable";
 
-const Module = () => {
+const Module = ({ match }) => {
   const dispatch = useDispatch();
   const filieres = useSelector((state) => state.filieres.items);
   const storeItems = useSelector((state) => state.modules.items);
@@ -19,8 +19,14 @@ const Module = () => {
     dispatch(fetchAll());
   }, []);
   useEffect(() => {
-    setitems(storeItems);
-  }, [storeItems]);
+    let relatedItems = [...storeItems];
+    if (match.params.filiere_id) {
+      relatedItems = relatedItems.filter(
+        (m) => m.filiere_id == match.params.filiere_id
+      );
+    }
+    setitems(relatedItems);
+  }, [storeItems, match.params.filiere_id]);
 
   // console.log(items);
   const handleTextEdited = (id, newItem) => {

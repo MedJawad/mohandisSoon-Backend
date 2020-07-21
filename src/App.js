@@ -31,7 +31,17 @@ function App() {
             <React.Fragment>
               <Header />
               <Route exact path="/filieres" component={Filiere} />
+              <Route
+                exact
+                path="/modules/filiere/:filiere_id"
+                component={Module}
+              />
               <Route exact path="/modules" component={Module} />
+              <Route
+                exact
+                path="/supports/module/:module_id"
+                component={Support}
+              />
               <Route exact path="/supports" component={Support} />
               {/* <Redirect exact from="/" to="/filieres" component={Filiere} /> */}
             </React.Fragment>

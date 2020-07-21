@@ -17,7 +17,7 @@ const failure = (error) => {
 const loginWithCookie = () => {
   const token = cookies.get("token");
   const user = cookies.get("user");
-  console.log(user, token);
+  // console.log(user, token);
   if (token)
     return {
       type: userActions.SUCCESS,
