@@ -51,7 +51,7 @@ const Header = () => {
           </Dropdown.Toggle>
 
           <Dropdown.Menu>
-            <Dropdown.Item>
+            <Dropdown.Item href="/supports">
               <Link to={`/supports`}>All</Link>
             </Dropdown.Item>
             {modules.map((mod) => (
