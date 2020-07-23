@@ -1,4 +1,5 @@
 node_modules/
+ignored/
 .env
 pack
 build
