@@ -9,5 +9,8 @@ const {
 router.post("/login", admin.authenticate);
 
 router.post("/register", authMiddleware, adminMiddleware, admin.register);
+router.post("/checkLoadBalance", (req, res) => {
+  res.send("LOAD BALANCER:" + process.env.PORT);
+});
 
 module.exports = router;
