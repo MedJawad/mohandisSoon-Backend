@@ -10,6 +10,7 @@ import Header from "./components/Header";
 import { Provider, useSelector, useDispatch } from "react-redux";
 import store from "./store";
 import authActions from "./actions/auth";
+import Article from "./pages/Article";
 
 function App() {
   const isAuthentified = useSelector((state) => state.auth.token != null);
@@ -30,6 +31,7 @@ function App() {
           {isAuthentified ? (
             <React.Fragment>
               <Header />
+              <Route exact path="/articles" component={Article} />
               <Route exact path="/filieres" component={Filiere} />
               <Route
                 exact

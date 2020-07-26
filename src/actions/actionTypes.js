@@ -4,6 +4,11 @@ export const userActions = {
   FAILURE: "FAILURE_USER",
   LOGOUT: "LOGOUT_USER",
 };
+export const articleActions = {
+  REQUEST: "REQUEST_ARTICLE",
+  SUCCESS: "SUCCESS_ARTICLE",
+  FAILURE: "FAILURE_ARTICLE",
+};
 export const filiereActions = {
   REQUEST: "REQUEST_FILIERE",
   SUCCESS: "SUCCESS_FILIERE",

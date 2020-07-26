@@ -6,6 +6,7 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 
+var articlesRouter = require("./routes/articles");
 var filieresRouter = require("./routes/filieres");
 var modulesRouter = require("./routes/modules");
 var supportsRouter = require("./routes/supports");
@@ -18,6 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "../build")));
 
+app.use("/api/articles", articlesRouter);
 app.use("/api/filieres", filieresRouter);
 app.use("/api/modules", modulesRouter);
 app.use("/api/supports", supportsRouter);

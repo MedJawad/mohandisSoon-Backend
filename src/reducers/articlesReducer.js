@@ -1,4 +1,4 @@
-import { programmeActions } from "../actions/actionTypes";
+import { articleActions } from "../actions/actionTypes";
 
 const initialState = {
   isLoading: false,
@@ -6,22 +6,22 @@ const initialState = {
   items: [],
 };
 
-export const programmes = (state = initialState, action) => {
+export const articles = (state = initialState, action) => {
   switch (action.type) {
-    case programmeActions.REQUEST:
+    case articleActions.REQUEST:
       return {
         ...state,
         isLoading: true,
         error: null,
       };
-    case programmeActions.SUCCESS:
+    case articleActions.SUCCESS:
       return {
         ...state,
         isLoading: false,
         error: null,
         items: action.data,
       };
-    case programmeActions.FAILURE:
+    case articleActions.FAILURE:
       return {
         ...state,
         isLoading: false,

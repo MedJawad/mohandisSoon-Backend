@@ -1,13 +1,14 @@
 import { combineReducers } from "redux";
 import { auth } from "./authReducer";
+import { articles } from "./articlesReducer";
 import { filieres } from "./filieresReducer";
-import { programmes } from "./programmesReducer";
 import { modules } from "./modulesReducer";
 import { supports } from "./supportReducer";
 import { userActions } from "../actions/actionTypes";
 
 const appReducer = combineReducers({
   auth,
+  articles,
   filieres,
   modules,
   supports,

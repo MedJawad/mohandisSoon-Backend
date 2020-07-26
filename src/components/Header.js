@@ -71,6 +71,9 @@ const Header = () => {
             ))}
           </Dropdown.Menu>
         </Dropdown>
+        <Link style={headerLinkStyle} to="/articles">
+          Articles
+        </Link>
       </Nav>
       <Nav className="ml-auto">
         <Button className="btn btn-danger" onClick={handleLogout}>
