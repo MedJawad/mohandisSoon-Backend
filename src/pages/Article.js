@@ -72,6 +72,14 @@ const Article = () => {
           />
         </td>
         <td>
+          <Editable
+            text={item.url}
+            handleTextEdited={(text) =>
+              handleTextEdited(item.id, { ...item, url: text })
+            }
+          />
+        </td>
+        <td>
           <input
             type="checkbox"
             onChange={(e) =>
@@ -96,6 +104,7 @@ const Article = () => {
             <th>#</th>
             <th>Title</th>
             <th>Description</th>
+            <th>URL</th>
             <th>Active</th>
           </tr>
         </thead>

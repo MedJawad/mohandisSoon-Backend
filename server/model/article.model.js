@@ -4,6 +4,7 @@ const sql = require("./db.js");
 const Article = function (article) {
   this.title = article.title;
   this.description = article.description;
+  this.url = article.url;
   this.active = article.active;
 };
 
@@ -48,8 +49,8 @@ Article.getAll = (result) => {
 
 Article.updateById = (id, article, result) => {
   sql.query(
-    "UPDATE articles SET description = ?, title = ?, active = ? WHERE id = ?",
-    [article.description, article.title, article.active, id],
+    "UPDATE articles SET description = ?, title = ?, url = ?, active = ? WHERE id = ?",
+    [article.description, article.title, article.url, article.active, id],
     (err, res) => {
       if (err) {
         result(null, err);

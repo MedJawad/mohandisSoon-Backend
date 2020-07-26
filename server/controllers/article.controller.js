@@ -13,6 +13,7 @@ exports.create = (req, res) => {
   const article = new Article({
     title: req.body.title,
     description: req.body.description,
+    url: req.body.url,
     active: true,
   });
 
