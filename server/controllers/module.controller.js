@@ -14,6 +14,7 @@ exports.create = (req, res) => {
     description: req.body.description,
     name: req.body.name,
     charge_horaire: req.body.charge_horaire,
+    annee: req.body.annee,
     active: req.body.active || true,
     filiere_id: req.body.filiere_id,
   });
