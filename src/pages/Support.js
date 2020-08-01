@@ -57,7 +57,18 @@ const Support = ({ match }) => {
   const newItem = () => {
     setisCreating(true);
     //Here we'll show the line of a new item
-    const newItems = items.concat([{ id: "NEW", module_id: 1 }]);
+    const newItems = items.concat([
+      {
+        id: "NEW",
+        name: "Cours",
+        description: "Cours",
+        type: "Cours",
+        url: "",
+        urlContentType: "link",
+        active: 1,
+        module_id: match.params.module_id || 1,
+      },
+    ]);
     setitems(newItems);
   };
   const renderItems = () => {
@@ -79,7 +90,7 @@ const Support = ({ match }) => {
             }
           />
         </td>
-        <td>
+        {/* <td>
           {" "}
           <Editable
             text={item.type}
@@ -87,6 +98,21 @@ const Support = ({ match }) => {
               handleTextEdited(item.id, { ...item, type: text })
             }
           />
+        </td> */}
+        <td>
+          <select
+            onChange={(e) =>
+              handleTextEdited(item.id, {
+                ...item,
+                type: e.target.value,
+              })
+            }
+            value={item.type}
+          >
+            <option value="Cours">Cours</option>
+            <option value="TD et TP">TD et TP</option>
+            <option value="DS">DS</option>
+          </select>
         </td>
         <td>
           {" "}
@@ -131,7 +157,7 @@ const Support = ({ match }) => {
             {" "}
             {modules.map((m, idx) => (
               <option key={idx} value={m.id}>
-                {m.name}
+                {m.name + " f" + m.filiere_id}
               </option>
             ))}{" "}
           </select>

@@ -55,7 +55,9 @@ const Module = ({ match }) => {
   const newItem = () => {
     setisCreating(true);
     //Here we'll show the line of a new item
-    const newItems = items.concat([{ id: "NEW", annee: 1, filiere_id: 1 }]);
+    const newItems = items.concat([
+      { id: "NEW", annee: 1, filiere_id: match.params.filiere_id || 1 },
+    ]);
     setitems(newItems);
   };
   const renderItems = () => {

@@ -19,8 +19,8 @@ const Header = () => {
   const handleLogout = () => {
     dispatch(authActions.logout());
   };
-
   const headerLinkStyle = { color: "white", padding: "5px", margin: "5px" };
+
   return (
     <Navbar bg="primary" variant="dark">
       <Navbar.Brand href="#home">MohandisSoon</Navbar.Brand>
@@ -28,7 +28,6 @@ const Header = () => {
         <Link style={headerLinkStyle} to="/filieres">
           Filieres
         </Link>
-
         <Dropdown>
           <Dropdown.Toggle variant="primary" id="dropdown-basic">
             Modules
