@@ -19,11 +19,6 @@ function App() {
     dispatch(authActions.loginWithCookie());
   }, []);
 
-  // let authRedirect = null;
-  // if (!isAuthentified) {
-  //   authRedirect = <Redirect to="/login" />;
-  // }
-
   return (
     <div className="App">
       <BrowserRouter>
